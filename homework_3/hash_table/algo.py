@@ -18,7 +18,6 @@ class HashTable:
                 pair[1] = value
                 return
 
-        # Расширяем таблицу, если элементов будет больше 75% от числа ячеек.
         if (self.size + 1) * 4 > self.capacity * 3:
             self.resize()
             index = hash(key) % self.capacity
@@ -57,7 +56,6 @@ class HashTable:
         for i in range(self.capacity):
             self.buckets.append([])
 
-        # При новой вместимости индекс ячейки может измениться.
         for bucket in old_buckets:
             for pair in bucket:
                 index = hash(pair[0]) % self.capacity
